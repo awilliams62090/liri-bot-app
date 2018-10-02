@@ -9,11 +9,11 @@ var liriFunc = process.argv[2];
 var userSearch = process.argv[3];
 for (var i = 3; i < process.argv.length; i++) {
     if (i > 3 && i < process.argv.length) {
-        userSearch = userSearch + "+" + process.argv[i];
+        userSearch = userSearch + " " + process.argv[i];
     }
 };
 
-
+//Switch case that passes in the function in process.argv[2]
 switch (liriFunc) {
     case "concertThis":
         concertThis();
@@ -97,16 +97,18 @@ function doWhatItSays() {
             return console.log(error);
         }
         console.log(data);
-        songName = data.split(",");
-        if (songName[0] === "spotify-this-song") {
-            spotifyThisSong(songName[1]);
-            console.log(songName)
-        } else if (dataArr[0] === "concert-this") {
-        artist = dataArr[1];
-            concertThis(artist);
-        } else if (dataArr[0] === "movie-this") {
-           movieName = dataArr[1];
-            movieThis(movieName);
+        userSearch = data.split(",");
+        if (userSearch[0] === "spotify-this-song") {
+            spotifyThisSong(userSearch[1]);
+            console.log(userSearch);
+        } else if (userSearch[0] === "concert-this") {
+        // artist = userSearch[1];
+            concertThis(userSearch[1]);
+            console.log(userSearch);
+        } else if (userSearch[0] === "movie-this") {
+        //    movieName = userSearch[1];
+            movieThis(userSearch[1]);
+            console.log(userSearch);
         }
     });
 
