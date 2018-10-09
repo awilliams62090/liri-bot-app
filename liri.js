@@ -66,7 +66,7 @@ function spotifyThisSong(songName) {
 };
 
 
-function movieThis() {
+function movieThis(movieName) {
     //     * Title of the movie.
     //    * Year the movie came out.
     //    * IMDB Rating of the movie.
@@ -78,6 +78,7 @@ function movieThis() {
     if (!movieName) {
         movieName = userSearch;
     };
+    console.log(movieName)
     var queryUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
     console.log(queryUrl);
     request(queryUrl, function (error, response, body) {
@@ -85,7 +86,7 @@ function movieThis() {
         if (!error && response.statusCode === 200) {
             // Then log the Release Year for the movie
             console.log("Movie Title: " + JSON.parse(body).Title + "\n" + "Movie Year: " + JSON.parse(body).Year + "\n" + "Movie Rating: " + JSON.parse(body).Rated + "\n" + "IMDB Rating: " + JSON.parse(body).Ratings[0].Value + "\n" + "Rotten Tomatoes Rating: " + JSON.parse(body).Ratings[1].Value + "\n" + "Produced in: " + JSON.parse(body).Country + "\n" + "Movie Language(s): " + JSON.parse(body).Language + "\n" + "Movie Plot: " + JSON.parse(body).Plot + "\n" + "Movie Actors: " + JSON.parse(body).Actors);
-        };
+        }
     });
 
 
@@ -98,15 +99,16 @@ function doWhatItSays() {
         }
         console.log(data);
         userSearch = data.split(",");
+        console.log(userSearch[0] + "\n" + userSearch[1]);
         if (userSearch[0] === "spotify-this-song") {
             spotifyThisSong(userSearch[1]);
             console.log(userSearch);
         } else if (userSearch[0] === "concert-this") {
-        // artist = userSearch[1];
-            concertThis(userSearch[1]);
-            console.log(userSearch);
+            artist = userSearch[1];
+            console.log(artist);
+            concertThis(artist);
         } else if (userSearch[0] === "movie-this") {
-        //    movieName = userSearch[1];
+            //    movieName = userSearch[1];
             movieThis(userSearch[1]);
             console.log(userSearch);
         }
