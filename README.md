@@ -13,10 +13,10 @@
 
 ## Installation, APIs and Credits!
 # If you clone this repository, you will need to run an npm install  and make sure you have your own keys for the: 
-    <a href="https://developer.spotify.com/dashboard/">Spotify API</a> 
-    <a href= "https://www.npmjs.com/package/node-spotify-api"> Node Spotify Package</a>
-    <a href= "http://www.artists.bandsintown.com/bandsintown-api"> Bands In Town API</a>
-    <a href="http://www.omdbapi.com/"> OMDB API</a>
+- [Spotify API](https://developer.spotify.com/dashboard/) 
+- [Node Spotify Package](https://www.npmjs.com/package/node-spotify-api) 
+- [Bands In Town API](http://www.artists.bandsintown.com/bandsintown-api) 
+- [OMDB API](http://www.omdbapi.com/) 
 
 
 ## Example Functionality
